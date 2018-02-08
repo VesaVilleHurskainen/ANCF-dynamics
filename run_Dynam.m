@@ -36,7 +36,7 @@ n=1; % number of elements
 % 2: circular dyn. pendulum (currently elements 3333 and 3363 only)
 % 3: elliptic dyn. pendulum (currently elements 3333 and 3363 only)
 % 7: rotating beam (currently elements 3333 and 3363 only)
-Case=4;
+Case=2;
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Integrator options                                               %
@@ -137,7 +137,7 @@ elseif Case == 2
 %     Wi2=0;
     g=0;				% gravity
     rho=7000;
-    E=150e9;			% Young's modulus
+    E=150e7;			% Young's modulus
     nu=0.33;				% Poisson's ratio
     ks=1;				% shear coefficient
     G=E/(2*(1+nu));		% shear modulus
@@ -229,7 +229,7 @@ if CrossSec == 2
 elseif CrossSec == 3
     data.M = Mg([],nloc,n,nx,elementID,rho,Wi1,Wo,L,3);
 elseif CrossSec == 5
-    data.M = Mg([],nloc,n,nx,elementID,rho,Wo,Wo,L,2) - Mg([],nloc,n,nx,elementID,rho,Wi1,Wi2,L,3);
+    data.M = Mg([],nloc,n,nx,elementID,rho,Wo,Wo,L,3) - Mg([],nloc,n,nx,elementID,rho,Wi1,Wi2,L,3);
 else
     error('Choose proper cross-section')
 end
